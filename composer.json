@@ -1,0 +1,69 @@
+{
+    "name": "zaengle/craft-toolbelt",
+    "description": "Utility tools for CraftCMS projects",
+    "type": "craft-plugin",
+    "keywords": [
+        "craftcms",
+        "craft-plugin",
+        "craft-toolbelt"
+    ],
+    "homepage": "https://github.com/:zaengle/:craft-toolbelt",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zaengle Corp",
+            "email": "dev@zaengle.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "dev@zaengle.com",
+        "issues": "https://github.com/zaengle/craft-toolbelt/issues?state=open",
+        "source": "https://github.com/zaengle/craft-toolbelt",
+        "docs": "https://github.com/zaengle/craft-toolbelt/blob/main/README.md"
+    },
+    "require": {
+        "php": "^8.0 | ^8.1",
+        "craftcms/cms": "^4.1"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^5.10",
+        "phpstan/phpstan": "^1.0",
+        "pestphp/pest": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "zaengle\\Toolbelt\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "zaengle\\Toolbelt\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "phpstan": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "lint": "vendor/bin/pest coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true,
+            "pestphp/pest-plugin": true,
+            "treeware/plant": true
+        }
+    },
+    "extra": {
+        "treeware": {},
+        "name": "craft-toolbelt",
+        "handle": "toolbelt",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/zaengle/craft-toolbelt/main/CHANGELOG.md",
+        "class": "zaengle\\Toolbelt\\Toolbelt"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
