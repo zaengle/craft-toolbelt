@@ -41,10 +41,8 @@ class Toolbelt extends Plugin
         $this->setComponents([
             'tools' => ToolbeltService::class,
         ]);
+
         Craft::$app->view->registerTwigExtension(new ToolbeltTwigExtension());
-
-        Collection::macro('one', fn () => $this->first());
-
     }
 
     protected function createSettingsModel(): Settings
