@@ -5,11 +5,17 @@ namespace zaengle\Toolbelt\TwigExtensions;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 use Twig\TwigFilter;
+use Twig\ExpressionParser;
+
 use zaengle\Toolbelt\Helpers\SvgHelper;
 use zaengle\Toolbelt\Helpers\ElementHelper as ToolbeltElementHelper;
+use zaengle\Toolbelt\Node\Expression\EmptyCoalesceExpression;
+
 
 use craft\elements\Asset;
+
 use Symfony\Component\VarDumper\VarDumper;
+
 use Newride\Classnames\Classnames as PhpClassnames;
 
 class ToolbeltTwigExtension extends AbstractExtension
@@ -55,21 +61,23 @@ class ToolbeltTwigExtension extends AbstractExtension
         ];
     }
 
-//    public function getOperators(): array
-//    {
-//        return [
-//            // Unary operators
-//            [],
-//            // Binary operators
-//            [
-//                '???' => [
-//                    'precedence' => 300,
-//                    'class' => EmptyCoalesceExpression::class,
-//                    'associativity' => ExpressionParser::OPERATOR_RIGHT
-//                ],
-//            ],
-//        ];
-//    }
+    // Attribution: this is robbed from https://github.com/nystudio107/craft-emptycoalesce
+    // thanks Andrew W
+    public function getOperators(): array
+    {
+        return [
+            // Unary operators
+            [],
+            // Binary operators
+            [
+                '???' => [
+                    'precedence' => 300,
+                    'class' => EmptyCoalesceExpression::class,
+                    'associativity' => ExpressionParser::OPERATOR_RIGHT
+                ],
+            ],
+        ];
+    }
 
     public function inlineSvg(string|Asset $file, array|string $attrs = [], array $params = []): string
     {
