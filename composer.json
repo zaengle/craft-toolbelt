@@ -24,7 +24,8 @@
     },
     "require": {
         "php": "^8.0 | ^8.1",
-        "craftcms/cms": "^4.1"
+        "craftcms/cms": "^4.1",
+        "newridetech/php-classnames": "^1.2"
     },
     "require-dev": {
         "nunomaduro/collision": "^5.10",
