@@ -18,7 +18,7 @@ php craft plugin/install toolbelt
 
 ## Usage
 
-See the [docs]('./docs/index.md')
+See the [docs](/docs/index.md)
 
 ## Testing
 
