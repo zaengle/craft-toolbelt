@@ -1,14 +1,14 @@
-# Craft Toolkit
+# Introduction
 
 > Logic belongs in PHP, not Twig.
+
+## What
 
 A collection of Twig enhancements to help you develop better, cleaner Craft CMS templates more quickly.
 
 ## Why?
 
 Because simple templates are easier to understand, and code that is easier to understand is easier to maintain.
-
-
 
 ## What you get...
 
