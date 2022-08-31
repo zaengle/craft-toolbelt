@@ -41,7 +41,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [Zaengle Corp](https://github.com/zaengle)
-- [Empty Coalesce / `???` lifted from the plugin of the same name by nystudio107]https://github.com/nystudio107/craft-emptycoalesce)
+- [Empty Coalesce / `???` lifted from the plugin of the same name by nystudio107](https://github.com/nystudio107/craft-emptycoalesce)
+- [Classnames functionality based on the plugin of the same name by Viget](https://github.com/vigetlabs/craft-classnames) 
 - [Icon is "Tools" by monkik from NounProject.com](https://thenounproject.com/icon/tools-2174219/)
 
 ## License
