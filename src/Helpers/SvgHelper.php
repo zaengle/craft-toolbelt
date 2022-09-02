@@ -2,10 +2,14 @@
 namespace zaengle\Toolbelt\Helpers;
 
 use Craft;
+
 use craft\elements\Asset;
 use craft\helpers\FileHelper;
 use craft\helpers\Template as TemplateHelper;
 use craft\helpers\Html as HtmlHelper;
+
+use zaengle\Toolbelt\Toolbelt;
+
 use yii\base\Exception;
 
 class SvgHelper
@@ -43,6 +47,35 @@ class SvgHelper
             return '';
         }
     }
+
+
+    public static function useSvgSprite(string $svgSlug, array $opts): string
+    {
+        $settings = Toolbelt::$plugin->getSettings();
+        $template = 'toolbelt/useSvgSprite';
+
+        if (Craft::$app->view->resolveTemplate($settings->svgUseSpriteTemplate)) {
+            $template = $settings->svgUseSpriteTemplate;
+        }
+
+        return Craft::$app->view->renderTemplate(
+            $template,
+            [
+                'svgSlug' => $svgSlug,
+                'opts' => array_merge_recursive([
+                    'height' => 32,
+                    'width' => 32,
+                    'viewBox' => null,
+                    'attrs' => [
+                        'aria-hidden' => 'true',
+                    ]
+                ],
+                [
+                    'svgSpriteIdPrefix' => $settings->svgSpriteIdPrefix,
+                ], $opts),
+            ]
+        );
+    }
     /**
      * Resolve an SVG from the provided slug / Asset.
      *
@@ -60,8 +93,10 @@ class SvgHelper
             return Craft::getAlias($file);
         }
 
+        $settings = Toolbelt::$plugin->getSettings();
+
         // Slug
-        foreach (self::PATHS as $path) {
+        foreach ($settings->svgPaths as $path) {
             $fullPath = Craft::getAlias(
                 FileHelper::normalizePath($path) . '/' . $file . self::EXTENSION
             );

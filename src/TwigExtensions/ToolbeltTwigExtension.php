@@ -42,6 +42,7 @@ class ToolbeltTwigExtension extends AbstractExtension
             new TwigFunction('parseUrl', fn (string $url) => parse_url($url), ['is_safe' => ['html']]),
             new TwigFunction('classNames', [$this, 'classNames']),
             new TwigFunction('cx', [$this, 'classNames']),
+            new TwigFunction('useSvgSprite', [$this, 'useSvgSprite'], ['is_safe' => ['html']]),
 
             // Query / Collection helpers
             new TwigFunction('take', [ToolbeltElementHelper::class, 'take']),
@@ -79,9 +80,21 @@ class ToolbeltTwigExtension extends AbstractExtension
         ];
     }
 
+    /**
+     * inline an SVG
+     * @param  Asset        $file   [description]
+     * @param  string|array $attrs  [description]
+     * @param  array        $params [description]
+     * @return [type]               [description]
+     */
     public function inlineSvg(string|Asset $file, array|string $attrs = [], array $params = []): string
     {
         return SvgHelper::renderInline($file, $attrs, $params);
+    }
+
+    public function useSvgSprite(string $svgSlug, array $opts = []): string
+    {
+        return SvgHelper::useSvgSprite($svgSlug, $opts);
     }
 
     /**

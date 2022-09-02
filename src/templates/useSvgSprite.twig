@@ -1,0 +1,8 @@
+{%- set viewBox = opts.viewBox ?? ('0 0 ' ~ opts.width ~ ' ' ~ opts.height) %}
+
+<svg viewBox="{{ viewBox }}" {{ attr(opts.attrs) }}>
+    {%- if title ?? false %}
+        <title>{{ title }}</title>
+    {%- endif %}
+    <use xlink:href="#{{ opts.svgSpriteIdPrefix }}{{ svgSlug }}" />
+</svg>

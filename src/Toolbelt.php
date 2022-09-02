@@ -4,9 +4,16 @@ namespace zaengle\Toolbelt;
 
 use Craft;
 use craft\base\Plugin;
+use craft\events\RegisterTemplateRootsEvent;
+use craft\web\View;
+
+use Illuminate\Support\Collection;
+
+use yii\base\Event;
+
+use zaengle\Toolbelt\Models\Settings;
 use zaengle\Toolbelt\Services\ToolbeltService;
 use zaengle\Toolbelt\TwigExtensions\ToolbeltTwigExtension;
-use Illuminate\Support\Collection;
 
 /**
  * Class Toolbelt
@@ -43,6 +50,14 @@ class Toolbelt extends Plugin
         ]);
 
         Craft::$app->view->registerTwigExtension(new ToolbeltTwigExtension());
+
+        Event::on(
+            View::class,
+            View::EVENT_REGISTER_SITE_TEMPLATE_ROOTS,
+            function(RegisterTemplateRootsEvent $event) {
+                $event->roots['toolbelt'] = __DIR__ . '/templates';
+            }
+        );
     }
 
     protected function createSettingsModel(): Settings
