@@ -1,12 +1,8 @@
 # Utility functions
 
-## `parseUrl()`
+## `parseUrl(string $url)`
 
 Wraps PHP's native [`parse_url()`](https://www.php.net/manual/en/function.parse-url.php)
-
-## `inlineSvg()`
-
-Injects an SVG inline in your template, specified by a path relative to `svgRoot` in the plugin's config file.
 
 ## `classNames` / `cx()` *
 

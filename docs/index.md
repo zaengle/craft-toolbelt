@@ -13,7 +13,8 @@ Because simple templates are easier to understand, and code that is easier to un
 ## What you get...
 
 1. [Utility functions](./01-utility-fns)
-2. [Query/Collection helpers](./02-query-helpers)
-3. [Eager loading helpers](./03-eager-loading-helpers)
-4. [Debugging helpers](./04-debugging-helpers)
-5. [Operators](./05-operators)
+2. [SVG helpers](./02-svg-helpers)
+3. [Query/Collection helpers](./03-query-helpers)
+4. [Eager loading helpers](./04-eager-loading-helpers)
+5. [Debugging helpers](./05-debugging-helpers)
+6. [Operators](./06-operators)
