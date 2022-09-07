@@ -47,7 +47,8 @@ class ToolbeltTwigExtension extends AbstractExtension
             // Query / Collection helpers
             new TwigFunction('take', [ToolbeltElementHelper::class, 'take']),
             new TwigFunction('takeOne', [ToolbeltElementHelper::class, 'takeOne']),
-            new TwigFunction('fill', [ToolbeltElementHelper::class, 'takeOne']),
+            new TwigFunction('fill', [ToolbeltElementHelper::class, 'fill']),
+            new TwigFunction('eagerLoad', [ToolbeltElementHelper::class, 'eagerLoad']),
         ];
     }
 

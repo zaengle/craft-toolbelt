@@ -1,6 +1,7 @@
 <?php
 namespace zaengle\Toolbelt\Helpers;
 
+use Craft;
 use craft\elements\db\ElementQuery;
 use craft\helpers\ArrayHelper;
 use craft\base\Element;
@@ -58,4 +59,16 @@ class ElementHelper
 
         return $result->take($qty);
     }
+
+    public static function eagerLoad(Element|array $elements, array $eagerLoadingConfig = []): void
+    {
+        $element = static::takeOne($elements);
+
+        Craft::$app->elements->eagerLoadElements(
+            $element::class,
+            static::take($elements)->toArray(),
+            $eagerLoadingConfig
+        );
+    }
+
 }
