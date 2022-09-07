@@ -9,3 +9,4 @@ parameters:
         - stubs/yii/BaseYii.stub
     tmpDir: build/phpstan
     checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false

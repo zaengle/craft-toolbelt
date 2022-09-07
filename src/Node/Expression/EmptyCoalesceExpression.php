@@ -16,7 +16,7 @@
  */
 
 
-namespace nystudio107\emptycoalesce\Node\Expression;
+namespace zaengle\Toolbelt\Node\Expression;
 
 use Twig\Compiler;
 use Twig\Node\Expression\AbstractExpression;

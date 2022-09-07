@@ -38,10 +38,10 @@ class ToolbeltTwigExtension extends AbstractExtension
             new TwigFunction('dd', fn (...$args) => dd(...$args)),
 
             // template helpers
-            new TwigFunction('inlineSvg', [$this, 'inlineSvg'], ['is_safe' => ['html']]),
-            new TwigFunction('parseUrl', fn (string $url) => parse_url($url), ['is_safe' => ['html']]),
             new TwigFunction('classNames', [$this, 'classNames']),
             new TwigFunction('cx', [$this, 'classNames']),
+            new TwigFunction('parseUrl', fn (string $url) => parse_url($url), ['is_safe' => ['html']]),
+            new TwigFunction('inlineSvg', [$this, 'inlineSvg'], ['is_safe' => ['html']]),
             new TwigFunction('useSvgSprite', [$this, 'useSvgSprite'], ['is_safe' => ['html']]),
 
             // Query / Collection helpers
@@ -81,13 +81,13 @@ class ToolbeltTwigExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * inline an SVG
-     * @param  Asset        $file   [description]
-     * @param  string|array $attrs  [description]
-     * @param  array        $params [description]
-     * @return [type]               [description]
-     */
+   /**
+    * Inline an SVG file
+    * @param  string|Asset        $file asset or path
+    * @param  string|array $attrs
+    * @param  array        $params
+    * @return string
+    */
     public function inlineSvg(string|Asset $file, array|string $attrs = [], array $params = []): string
     {
         return SvgHelper::renderInline($file, $attrs, $params);
@@ -101,7 +101,7 @@ class ToolbeltTwigExtension extends AbstractExtension
     /**
      * @param mixed ...$vars
      */
-    public function dump(mixed ...$vars)
+    public function dump(mixed ...$vars): void
     {
         foreach ($vars as $v) {
             VarDumper::dump($v);

@@ -37,7 +37,7 @@ class ElementHelper
 
         return $collection;
     }
-    public static function takeOne($subject)
+    public static function takeOne(array|ElementQuery|Element|Model|Collection $subject): Element
     {
         if (!is_iterable($subject)) {
             return $subject;

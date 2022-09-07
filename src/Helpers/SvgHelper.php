@@ -51,6 +51,9 @@ class SvgHelper
 
     public static function useSvgSprite(string $svgSlug, array $attrs = [], array $opts = []): string
     {
+        /**
+         * @var \zaengle\Toolbelt\Models\Settings
+         */
         $settings = Toolbelt::$plugin->getSettings();
         $template = 'toolbelt/useSvgSprite';
 
@@ -90,6 +93,9 @@ class SvgHelper
             return Craft::getAlias($file);
         }
 
+        /**
+         * @var \zaengle\Toolbelt\Models\Settings
+         */
         $settings = Toolbelt::$plugin->getSettings();
 
         // Slug
@@ -135,7 +141,7 @@ class SvgHelper
         return $asset->kind == 'image' && $asset->extension == 'svg';
     }
 
-    private static function handleNonSvgAsset(Asset $file) : void
+    private static function handleNonSvgAsset(Asset $file) : null
     {
         $message = "$file->filename is not an SVG file";
 
@@ -143,6 +149,8 @@ class SvgHelper
             throw new Exception($message);
         }
         Craft::error("[inlineSvg] {$$message}", __METHOD__);
+
+        return null;
 
     }
 }
