@@ -2,21 +2,21 @@
 
 namespace zaengle\Toolbelt\TwigExtensions;
 
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFunction;
-use Twig\TwigFilter;
+use craft\elements\Asset;
+use Newride\Classnames\Classnames as PhpClassnames;
+use Symfony\Component\VarDumper\VarDumper;
 use Twig\ExpressionParser;
 
-use zaengle\Toolbelt\Helpers\SvgHelper;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
+use Twig\TwigFunction;
+
+
 use zaengle\Toolbelt\Helpers\ElementHelper as ToolbeltElementHelper;
+
+use zaengle\Toolbelt\Helpers\SvgHelper;
+
 use zaengle\Toolbelt\Node\Expression\EmptyCoalesceExpression;
-
-
-use craft\elements\Asset;
-
-use Symfony\Component\VarDumper\VarDumper;
-
-use Newride\Classnames\Classnames as PhpClassnames;
 
 class ToolbeltTwigExtension extends AbstractExtension
 {
@@ -35,12 +35,12 @@ class ToolbeltTwigExtension extends AbstractExtension
             // debugging
             new TwigFunction('d', [$this, 'dump']),
             new TwigFunction('dump', [$this, 'dump']),
-            new TwigFunction('dd', fn (...$args) => dd(...$args)),
+            new TwigFunction('dd', fn(...$args) => dd(...$args)),
 
             // template helpers
             new TwigFunction('classNames', [$this, 'classNames']),
             new TwigFunction('cx', [$this, 'classNames']),
-            new TwigFunction('parseUrl', fn (string $url) => parse_url($url), ['is_safe' => ['html']]),
+            new TwigFunction('parseUrl', fn(string $url) => parse_url($url), ['is_safe' => ['html']]),
             new TwigFunction('inlineSvg', [$this, 'inlineSvg'], ['is_safe' => ['html']]),
             new TwigFunction('useSvgSprite', [$this, 'useSvgSprite'], ['is_safe' => ['html']]),
 
@@ -75,19 +75,19 @@ class ToolbeltTwigExtension extends AbstractExtension
                 '???' => [
                     'precedence' => 300,
                     'class' => EmptyCoalesceExpression::class,
-                    'associativity' => ExpressionParser::OPERATOR_RIGHT
+                    'associativity' => ExpressionParser::OPERATOR_RIGHT,
                 ],
             ],
         ];
     }
 
-   /**
-    * Inline an SVG file
-    * @param  string|Asset        $file asset or path
-    * @param  string|array $attrs
-    * @param  array        $params
-    * @return string
-    */
+    /**
+     * Inline an SVG file
+     * @param  string|Asset        $file asset or path
+     * @param  string|array $attrs
+     * @param  array        $params
+     * @return string
+     */
     public function inlineSvg(string|Asset $file, array|string $attrs = [], array $params = []): string
     {
         return SvgHelper::renderInline($file, $attrs, $params);

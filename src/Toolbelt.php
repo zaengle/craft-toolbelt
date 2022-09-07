@@ -7,7 +7,6 @@ use craft\base\Plugin;
 use craft\events\RegisterTemplateRootsEvent;
 use craft\web\View;
 
-use Illuminate\Support\Collection;
 
 use yii\base\Event;
 
@@ -70,10 +69,10 @@ class Toolbelt extends Plugin
      */
     protected function afterInstall(): void
     {
-        $configSource = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR. 'config.example.php';
+        $configSource = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config.example.php';
         $configTarget = Craft::$app->getConfig()->configDir . DIRECTORY_SEPARATOR . 'toolbelt.php';
 
-        if (! file_exists($configTarget)) {
+        if (!file_exists($configTarget)) {
             copy($configSource, $configTarget);
         }
     }

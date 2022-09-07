@@ -1,11 +1,12 @@
 <?php
+
 namespace zaengle\Toolbelt\Helpers;
 
 use Craft;
-use craft\elements\db\ElementQuery;
-use craft\helpers\ArrayHelper;
 use craft\base\Element;
 use craft\base\Model;
+use craft\elements\db\ElementQuery;
+use craft\helpers\ArrayHelper;
 
 use Illuminate\Support\Collection;
 
@@ -70,5 +71,4 @@ class ElementHelper
             $eagerLoadingConfig
         );
     }
-
 }

@@ -1,23 +1,24 @@
 <?php
+
 namespace zaengle\Toolbelt\Helpers;
 
 use Craft;
 
 use craft\elements\Asset;
 use craft\helpers\FileHelper;
-use craft\helpers\Template as TemplateHelper;
 use craft\helpers\Html as HtmlHelper;
-
-use zaengle\Toolbelt\Toolbelt;
+use craft\helpers\Template as TemplateHelper;
 
 use yii\base\Exception;
 
+use zaengle\Toolbelt\Toolbelt;
+
 class SvgHelper
 {
-    const EXTENSION = '.svg';
+    public const EXTENSION = '.svg';
 
     // @todo this should come from config once we are in a plugin, rather than a module
-    const PATHS = [
+    public const PATHS = [
         '@root/assets/svg',
     ];
 
@@ -31,7 +32,7 @@ class SvgHelper
      * @return string
      * @throws Exception
      */
-    public static function renderInline(string|Asset $file, array|string $attrs = [], array $params = []) : string
+    public static function renderInline(string|Asset $file, array|string $attrs = [], array $params = []): string
     {
         if (is_string($attrs)) {
             $attrs = [
@@ -72,7 +73,7 @@ class SvgHelper
                     $settings->svgSpriteDefaultOpts,
                     $opts,
                 ),
-                'attrs' => array_merge($settings->svgSpriteDefaultAttrs, $attrs)
+                'attrs' => array_merge($settings->svgSpriteDefaultAttrs, $attrs),
             ]
         );
     }
@@ -82,14 +83,14 @@ class SvgHelper
      * @param  string|Asset $file
      * @return string|Asset
      */
-    protected static function resolveFile(string|Asset $file) : string|Asset
+    protected static function resolveFile(string|Asset $file): string|Asset
     {
         if ($file instanceof Asset) {
             return $file;
         }
 
         // Aliased path
-        if ($file[0] == '@' && file_exists(Craft::getAlias($file)))  {
+        if ($file[0] == '@' && file_exists(Craft::getAlias($file))) {
             return Craft::getAlias($file);
         }
 
@@ -121,9 +122,9 @@ class SvgHelper
      * @return string|null
      * @throws Exception
      */
-    protected static function getFileContents(string|Asset $file, array $params = []) : ?string
+    protected static function getFileContents(string|Asset $file, array $params = []): ?string
     {
-        if ($file instanceof Asset && ! self::isSvgAsset($file)) {
+        if ($file instanceof Asset && !self::isSvgAsset($file)) {
             return self::handleNonSvgAsset($file);
         }
 
@@ -136,12 +137,12 @@ class SvgHelper
         );
     }
 
-    protected static function isSvgAsset(Asset $asset) : bool
+    protected static function isSvgAsset(Asset $asset): bool
     {
         return $asset->kind == 'image' && $asset->extension == 'svg';
     }
 
-    private static function handleNonSvgAsset(Asset $file) : null
+    private static function handleNonSvgAsset(Asset $file): null
     {
         $message = "$file->filename is not an SVG file";
 
@@ -151,6 +152,5 @@ class SvgHelper
         Craft::error("[inlineSvg] {$$message}", __METHOD__);
 
         return null;
-
     }
 }
