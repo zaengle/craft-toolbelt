@@ -20,7 +20,9 @@ export default {
         items: [
           { text: 'Utility Functions', link: '/01-utility-fns' },
           { text: 'Query / Collection Helpers', link: '/02-query-helpers' },
-          { text: 'Debugging Helpers', link: '/03-debugging-helpers' },
+          { text: 'Eager Loading Helpers', link: '/03-eager-loading-helpers' },
+          { text: 'Debugging Helpers', link: '/04-debugging-helpers' },
+          { text: 'Operators', link: '/05-operators' },
         ]
       },
       {
