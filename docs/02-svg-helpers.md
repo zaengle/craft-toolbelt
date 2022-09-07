@@ -105,7 +105,7 @@ See [the bundled template](https://github.com/zaengle/craft-toolbelt/blob/main/s
 
 ### Notes
 
-- Toolbelt does not handle creating an SVG sprite for you. You should do that via your front end build process. This method just helps with consumiong/using SVG sprites in your templates.
+- Toolbelt does not handle creating an SVG sprite for you. You should do that via your front end build process. This method just helps with consuming/using SVG sprites in your templates.
 - You will also need to inject your SVG sprite into your template somewhere. You can do this with `inlineSvg()` above, or using ajax/`fetch()` (preferable as then the sprite can be cached across pageloads). 
 
 Example using `fetch()`:
