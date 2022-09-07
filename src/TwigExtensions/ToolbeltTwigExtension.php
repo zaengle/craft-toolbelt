@@ -2,7 +2,6 @@
 
 namespace zaengle\Toolbelt\TwigExtensions;
 
-use craft\elements\Asset;
 use Newride\Classnames\Classnames as PhpClassnames;
 use Symfony\Component\VarDumper\VarDumper;
 use Twig\ExpressionParser;
@@ -13,7 +12,6 @@ use Twig\TwigFunction;
 
 
 use zaengle\Toolbelt\Helpers\ElementHelper as ToolbeltElementHelper;
-
 use zaengle\Toolbelt\Helpers\SvgHelper;
 
 use zaengle\Toolbelt\Node\Expression\EmptyCoalesceExpression;
@@ -41,8 +39,11 @@ class ToolbeltTwigExtension extends AbstractExtension
             new TwigFunction('classNames', [$this, 'classNames']),
             new TwigFunction('cx', [$this, 'classNames']),
             new TwigFunction('parseUrl', fn(string $url) => parse_url($url), ['is_safe' => ['html']]),
-            new TwigFunction('inlineSvg', [$this, 'inlineSvg'], ['is_safe' => ['html']]),
-            new TwigFunction('useSvgSprite', [$this, 'useSvgSprite'], ['is_safe' => ['html']]),
+
+            // SVG helpers
+            new TwigFunction('inlineSvg', [SvgHelper::class, 'renderInline'], ['is_safe' => ['html']]),
+            new TwigFunction('useSvgSprite', [SvgHelper::class, 'useSvgSprite'], ['is_safe' => ['html']]),
+            new TwigFunction('svgSlug', [SvgHelper::class, 'svgSlug'], ['is_safe' => ['html']]),
 
             // Query / Collection helpers
             new TwigFunction('take', [ToolbeltElementHelper::class, 'take']),
@@ -79,23 +80,6 @@ class ToolbeltTwigExtension extends AbstractExtension
                 ],
             ],
         ];
-    }
-
-    /**
-     * Inline an SVG file
-     * @param  string|Asset        $file asset or path
-     * @param  string|array $attrs
-     * @param  array        $params
-     * @return string
-     */
-    public function inlineSvg(string|Asset $file, array|string $attrs = [], array $params = []): string
-    {
-        return SvgHelper::renderInline($file, $attrs, $params);
-    }
-
-    public function useSvgSprite(string $svgSlug, array $attrs = [], array $opts = []): string
-    {
-        return SvgHelper::useSvgSprite($svgSlug, $attrs, $opts);
     }
 
     /**

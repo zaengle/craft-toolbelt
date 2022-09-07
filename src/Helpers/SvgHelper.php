@@ -57,6 +57,7 @@ class SvgHelper
          */
         $settings = Toolbelt::$plugin->getSettings();
         $template = 'toolbelt/useSvgSprite';
+        $svgSlug = self::svgSlug($svgSlug);
 
         if (Craft::$app->view->resolveTemplate($settings->svgSpriteTemplate)) {
             $template = $settings->svgSpriteTemplate;
@@ -76,6 +77,29 @@ class SvgHelper
                 'attrs' => array_merge($settings->svgSpriteDefaultAttrs, $attrs),
             ]
         );
+    }
+    /**
+     * Extract the slug part of an SVG filename, removing svgSpriteIdPrefix + file extension
+     * @param  string $filename
+     * @return string
+     */
+    public static function svgSlug(string $filename): string
+    {
+        /**
+         * @var \zaengle\Toolbelt\Models\Settings
+         */
+        $settings = Toolbelt::$plugin->getSettings();
+        $prefix = $settings->svgSpriteIdPrefix;
+        $slug = pathinfo($filename)['filename'];
+
+        if (!empty($prefix)
+            &&
+            substr($slug, 0, strlen($prefix)) == $prefix
+        ) {
+            $slug = substr($slug, strlen($prefix));
+        }
+
+        return $slug;
     }
     /**
      * Resolve an SVG from the provided slug / Asset.
