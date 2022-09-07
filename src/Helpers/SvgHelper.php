@@ -125,7 +125,8 @@ class SvgHelper
     protected static function getFileContents(string|Asset $file, array $params = []): ?string
     {
         if ($file instanceof Asset && !self::isSvgAsset($file)) {
-            return self::handleNonSvgAsset($file);
+            self::handleNonSvgAsset($file);
+            return null;
         }
 
         $nativeSvg = Craft::$app->view->twig->getFunction('svg')->getCallable();
@@ -142,7 +143,7 @@ class SvgHelper
         return $asset->kind == 'image' && $asset->extension == 'svg';
     }
 
-    private static function handleNonSvgAsset(Asset $file): null
+    private static function handleNonSvgAsset(Asset $file): void
     {
         $message = "$file->filename is not an SVG file";
 
@@ -150,7 +151,5 @@ class SvgHelper
             throw new Exception($message);
         }
         Craft::error("[inlineSvg] {$$message}", __METHOD__);
-
-        return null;
     }
 }
