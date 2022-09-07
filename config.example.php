@@ -30,5 +30,12 @@ return [
     // The prefix to apply to symbol ids in your SVG sprite
     // 'svgSpriteIdPrefix' => 'sprite-',
     // Optional path to customise the template used by `useSvgSprite()`
-    // 'svgUseSpriteTemplate' => '_toolbelt/useSvgSprite',
+    // 'svgSpriteTemplate' => '_toolbelt/useSvgSprite',
+    'svgSpriteDefaultOpts' => [
+        'width' => 32,
+        'height' => 32,
+    ],
+    'svgSpriteDefaultAttrs' => [
+        'aria-hidden' => 'true'
+    ],
 ];

@@ -1,8 +1,17 @@
-{%- set viewBox = opts.viewBox ?? ('0 0 ' ~ opts.width ~ ' ' ~ opts.height) %}
+{#
+    Craft Toolkit for SVG sprite <use>
+ #}
+{%- set width = opts.width ?? 32 -%}
+{%- set height = opts.height ?? width -%}
+{%- set viewBox = opts.viewBox ?? ('0 0 ' ~ opts.width ~ ' ' ~ height) %}
 
-<svg viewBox="{{ viewBox }}" {{ attr(opts.attrs) }}>
-    {%- if title ?? false %}
-        <title>{{ title }}</title>
+{%- set attrs = {
+    viewBox: viewBox,
+}  | merge(attrs) %}
+
+<svg {{ attr(attrs) }}>
+    {%- if opts.title ?? false %}
+        <title>{{ opts.title }}</title>
     {%- endif %}
     <use xlink:href="#{{ opts.svgSpriteIdPrefix }}{{ svgSlug }}" />
 </svg>

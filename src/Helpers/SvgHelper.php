@@ -49,30 +49,27 @@ class SvgHelper
     }
 
 
-    public static function useSvgSprite(string $svgSlug, array $opts): string
+    public static function useSvgSprite(string $svgSlug, array $attrs = [], array $opts = []): string
     {
         $settings = Toolbelt::$plugin->getSettings();
         $template = 'toolbelt/useSvgSprite';
 
-        if (Craft::$app->view->resolveTemplate($settings->svgUseSpriteTemplate)) {
-            $template = $settings->svgUseSpriteTemplate;
+        if (Craft::$app->view->resolveTemplate($settings->svgSpriteTemplate)) {
+            $template = $settings->svgSpriteTemplate;
         }
 
         return Craft::$app->view->renderTemplate(
             $template,
             [
                 'svgSlug' => $svgSlug,
-                'opts' => array_merge_recursive([
-                    'height' => 32,
-                    'width' => 32,
-                    'viewBox' => null,
-                    'attrs' => [
-                        'aria-hidden' => 'true',
-                    ]
-                ],
-                [
-                    'svgSpriteIdPrefix' => $settings->svgSpriteIdPrefix,
-                ], $opts),
+                'opts' => array_merge(
+                    [
+                        'svgSpriteIdPrefix' => $settings->svgSpriteIdPrefix,
+                    ],
+                    $settings->svgSpriteDefaultOpts,
+                    $opts,
+                ),
+                'attrs' => array_merge($settings->svgSpriteDefaultAttrs, $attrs)
             ]
         );
     }

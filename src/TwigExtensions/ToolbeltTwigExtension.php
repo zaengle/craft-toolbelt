@@ -93,9 +93,9 @@ class ToolbeltTwigExtension extends AbstractExtension
         return SvgHelper::renderInline($file, $attrs, $params);
     }
 
-    public function useSvgSprite(string $svgSlug, array $opts = []): string
+    public function useSvgSprite(string $svgSlug, array $attrs = [], array $opts = []): string
     {
-        return SvgHelper::useSvgSprite($svgSlug, $opts);
+        return SvgHelper::useSvgSprite($svgSlug, $attrs, $opts);
     }
 
     /**
