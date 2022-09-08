@@ -38,7 +38,7 @@ class ElementHelper
 
         return $collection;
     }
-    public static function takeOne(array|ElementQuery|Element|Model|Collection $subject): Element
+    public static function takeOne(array|ElementQuery|Element|Model|Collection $subject): ?Element
     {
         if (!is_iterable($subject)) {
             return $subject;
@@ -63,12 +63,12 @@ class ElementHelper
 
     public static function eagerLoad(Element|array $elements, array $eagerLoadingConfig = []): void
     {
-        $element = static::takeOne($elements);
-
-        Craft::$app->elements->eagerLoadElements(
-            $element::class,
-            static::take($elements)->toArray(),
-            $eagerLoadingConfig
-        );
+        if ($element = static::takeOne($elements)) {
+            Craft::$app->elements->eagerLoadElements(
+                $element::class,
+                static::take($elements)->toArray(),
+                $eagerLoadingConfig
+            );
+        }
     }
 }
