@@ -12,7 +12,7 @@ use Illuminate\Support\Collection;
 
 class ElementHelper
 {
-    public static function take(array|ElementQuery|Element|Model|Collection $subject, ?int $limit = null): Collection
+    public static function take(array|null|ElementQuery|Element|Model|Collection $subject, ?int $limit = null): Collection
     {
         if ($subject instanceof Collection) {
             $collection = $subject;
@@ -38,7 +38,7 @@ class ElementHelper
 
         return $collection;
     }
-    public static function takeOne(array|ElementQuery|Element|Model|Collection $subject): ?Element
+    public static function takeOne(array|null|ElementQuery|Element|Model|Collection $subject): ?Element
     {
         if (!is_iterable($subject)) {
             return $subject;
