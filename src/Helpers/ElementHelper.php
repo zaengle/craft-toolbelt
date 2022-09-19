@@ -54,7 +54,11 @@ class ElementHelper
         $i = 0;
 
         do {
-            $result->concat(static::take($sources[$i], $qty)->toArray());
+            if (!isset($sources[$i])) {
+                dump('break', $i);
+                break;
+            }
+            $result = $result->concat(static::take($sources[$i], $qty)->toArray());
             $i++;
         } while ($result->count() < $qty || $i < count($sources) - 1);
 
