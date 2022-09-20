@@ -55,7 +55,6 @@ class ElementHelper
 
         do {
             if (!isset($sources[$i])) {
-                dump('break', $i);
                 break;
             }
             $result = $result->concat(static::take($sources[$i], $qty)->toArray());
