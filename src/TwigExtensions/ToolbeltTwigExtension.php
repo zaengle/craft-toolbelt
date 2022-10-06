@@ -39,6 +39,7 @@ class ToolbeltTwigExtension extends AbstractExtension
             new TwigFunction('classNames', [$this, 'classNames']),
             new TwigFunction('cx', [$this, 'classNames']),
             new TwigFunction('parseUrl', fn(string $url) => parse_url($url), ['is_safe' => ['html']]),
+            new TwigFunction('pathinfo', fn(string $path) => pathinfo($path)),
 
             // SVG helpers
             new TwigFunction('inlineSvg', [SvgHelper::class, 'renderInline'], ['is_safe' => ['html']]),
