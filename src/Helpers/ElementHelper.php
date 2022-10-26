@@ -64,7 +64,7 @@ class ElementHelper
         return $result->take($qty);
     }
 
-    public static function eagerLoad(Element|array $elements, array $eagerLoadingConfig = []): void
+    public static function eagerLoad(Element|array|Collection $elements, array $eagerLoadingConfig = []): Element|array|Collection
     {
         if ($element = static::takeOne($elements)) {
             Craft::$app->elements->eagerLoadElements(
@@ -73,5 +73,6 @@ class ElementHelper
                 $eagerLoadingConfig
             );
         }
+        return $elements;
     }
 }
