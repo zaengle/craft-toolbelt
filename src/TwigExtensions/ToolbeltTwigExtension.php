@@ -2,6 +2,7 @@
 
 namespace zaengle\Toolbelt\TwigExtensions;
 
+use craft\helpers\StringHelper;
 use Newride\Classnames\Classnames as PhpClassnames;
 use Symfony\Component\VarDumper\VarDumper;
 use Twig\ExpressionParser;
@@ -26,6 +27,7 @@ class ToolbeltTwigExtension extends AbstractExtension
     }
     /**
      * @inheritdoc
+     * @noinspection ForgottenDebugOutputInspection
      */
     public function getFunctions(): array
     {
@@ -34,6 +36,11 @@ class ToolbeltTwigExtension extends AbstractExtension
             new TwigFunction('d', [$this, 'dump']),
             new TwigFunction('dump', [$this, 'dump']),
             new TwigFunction('dd', fn(...$args) => dd(...$args)),
+
+            // string helpers
+            new TwigFunction('slugify', [StringHelper::class, 'slugify']),
+            new TwigFunction('basename', [StringHelper::class, 'basename']),
+            new TwigFunction('UUID', [StringHelper::class, 'UUID']),
 
             // template helpers
             new TwigFunction('classNames', [$this, 'classNames']),
@@ -62,11 +69,15 @@ class ToolbeltTwigExtension extends AbstractExtension
             // Query / Collection helpers
             new TwigFilter('take', [ToolbeltElementHelper::class, 'take']),
             new TwigFilter('takeOne', [ToolbeltElementHelper::class, 'takeOne']),
+            // string helpers
+            new TwigFunction('slugify', [StringHelper::class, 'slugify']),
+            new TwigFunction('basename', [StringHelper::class, 'basename']),
         ];
     }
 
     // Attribution: this is robbed from https://github.com/nystudio107/craft-emptycoalesce
     // thanks Andrew W
+    /** @noinspection MissedFieldInspection */
     public function getOperators(): array
     {
         return [
