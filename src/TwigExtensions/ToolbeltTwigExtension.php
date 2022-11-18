@@ -70,8 +70,8 @@ class ToolbeltTwigExtension extends AbstractExtension
             new TwigFilter('take', [ToolbeltElementHelper::class, 'take']),
             new TwigFilter('takeOne', [ToolbeltElementHelper::class, 'takeOne']),
             // string helpers
-            new TwigFunction('slugify', [StringHelper::class, 'slugify']),
-            new TwigFunction('basename', [StringHelper::class, 'basename']),
+            new TwigFilter('slugify', [StringHelper::class, 'slugify']),
+            new TwigFilter('basename', [StringHelper::class, 'basename']),
         ];
     }
 
