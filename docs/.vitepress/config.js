@@ -24,6 +24,7 @@ export default {
           { text: 'Eager Loading Helpers', link: '/04-eager-loading-helpers' },
           { text: 'Debugging Helpers', link: '/05-debugging-helpers' },
           { text: 'Operators', link: '/06-operators' },
+          { text: 'Custom Helpers', link: '/07-custom' },
         ]
       },
       {

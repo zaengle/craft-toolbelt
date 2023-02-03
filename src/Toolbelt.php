@@ -12,6 +12,7 @@ use yii\base\Event;
 
 use zaengle\Toolbelt\Models\Settings;
 use zaengle\Toolbelt\Services\ToolbeltService;
+use zaengle\Toolbelt\TwigExtensions\CustomTwigExtension;
 use zaengle\Toolbelt\TwigExtensions\ToolbeltTwigExtension;
 
 /**
@@ -30,9 +31,6 @@ class Toolbelt extends Plugin
 
     public static Toolbelt $plugin;
     public string $schemaVersion = '1.0.0';
-    public bool $hasCpSettings = false;
-    public bool $hasCpSection = false;
-
     // Public Methods
     // =========================================================================
 
@@ -49,6 +47,7 @@ class Toolbelt extends Plugin
         ]);
 
         Craft::$app->view->registerTwigExtension(new ToolbeltTwigExtension());
+        Craft::$app->view->registerTwigExtension(new CustomTwigExtension());
 
         Event::on(
             View::class,

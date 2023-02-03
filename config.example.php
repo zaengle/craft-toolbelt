@@ -38,4 +38,10 @@ return [
     'svgSpriteDefaultAttrs' => [
         'aria-hidden' => 'true'
     ],
+    'custom' => [
+        'filters' => [],
+        'functions' => [],
+        'globals' => [],
+        'tests' => [],
+    ],
 ];
