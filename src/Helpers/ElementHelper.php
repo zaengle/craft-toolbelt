@@ -23,10 +23,10 @@ class ElementHelper
         } elseif (
             // already a single Element or Model
             $subject instanceof Model
-            // a fake / mock / facades via assoc array or Model
-            || ArrayHelper::isAssociative($subject)
             // some other non-iterable thing
             || !is_iterable($subject)
+            // a fake / mock / facades via assoc array or Model
+            || ArrayHelper::isAssociative($subject)
         ) {
             $collection = collect([$subject]);
         } else {
@@ -64,8 +64,11 @@ class ElementHelper
         return $result->take($qty);
     }
 
-    public static function eagerLoad(Element|array|Collection $elements, array $eagerLoadingConfig = []): Element|array|Collection
+    public static function eagerLoad(Element|array|Collection|ElementQuery $elements, array $eagerLoadingConfig = []): Element|array|Collection
     {
+        if ($elements instanceof ElementQuery) {
+            $elements = $elements->collect();
+        }
         if ($element = static::takeOne($elements)) {
             Craft::$app->elements->eagerLoadElements(
                 $element::class,
