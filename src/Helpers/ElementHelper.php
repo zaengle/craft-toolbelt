@@ -64,12 +64,11 @@ class ElementHelper
         return $result->take($qty);
     }
 
-    public static function eagerLoad(Element|array|Collection|ElementQuery $elements, array $eagerLoadingConfig = []): Element|array|Collection
+    public static function eagerLoad(Element|array|Collection|ElementQuery $elements, array $eagerLoadingConfig = []): Element|array|Collection|ElementQuery
     {
         if ($elements instanceof ElementQuery) {
-            $elements = $elements->collect();
-        }
-        if ($element = static::takeOne($elements)) {
+            $elements->with($eagerLoadingConfig);
+        } elseif ($element = static::takeOne($elements)) {
             Craft::$app->elements->eagerLoadElements(
                 $element::class,
                 static::take($elements)->toArray(),
