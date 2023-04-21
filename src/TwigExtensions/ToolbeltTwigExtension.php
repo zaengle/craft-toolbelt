@@ -59,6 +59,9 @@ class ToolbeltTwigExtension extends AbstractExtension
             new TwigFunction('takeOne', [ToolbeltElementHelper::class, 'takeOne']),
             new TwigFunction('fill', [ToolbeltElementHelper::class, 'fill']),
             new TwigFunction('eagerLoad', [ToolbeltElementHelper::class, 'eagerLoad']),
+
+            // Data helpers
+            new TwigFunction('json_decode', fn($value, $assoc = false, $depth = 512, $options = 0) => json_decode(html_entity_decode($value), $assoc, $depth, $options)),
         ];
     }
 
