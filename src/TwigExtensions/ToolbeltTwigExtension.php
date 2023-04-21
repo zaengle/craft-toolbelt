@@ -41,6 +41,7 @@ class ToolbeltTwigExtension extends AbstractExtension
             new TwigFunction('slugify', [StringHelper::class, 'slugify']),
             new TwigFunction('basename', [StringHelper::class, 'basename']),
             new TwigFunction('UUID', [StringHelper::class, 'UUID']),
+            new TwigFunction('md5', fn($value) => md5($value)),
 
             // template helpers
             new TwigFunction('classNames', [$this, 'classNames']),
