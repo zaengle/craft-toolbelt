@@ -19,6 +19,7 @@ export default {
         text: 'Usage',
         items: [
           { text: 'Utility Functions', link: '/01-utility-fns' },
+          { text: 'String Helpers', link: '/01.5-string-helpers' },
           { text: 'SVG Helpers', link: '/02-svg-helpers' },
           { text: 'Query / Collection Helpers', link: '/03-query-helpers' },
           { text: 'Eager Loading Helpers', link: '/04-eager-loading-helpers' },

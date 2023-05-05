@@ -1,13 +1,14 @@
-# Query / Collection helpers
+# Query & Collection Helpers
 
 `take()` / `takeOne` allow your templates to indifferently consume `ElementQuery`s, `Collections`, plain `array`s, single `Model` instances and even hashes / assoc arrays, and handle them all in the same way when you want to consume them.
-
 
 ## `take()`
 
 `take()` accepts any of the above types and intelligently returns a Collection based on what you provided.
 
-It also accepts an optional second `limit` parameter that will limit the quantity of items in the returned collection:
+It also accepts an optional second `limit` parameter that will limit the quantity of items in the returned collection.
+
+It is available as both a Twig function and a filter.
 
 ```twig
 {% set featuredItems = take(aQueryOrArrayOrCollection, 4)  %}
@@ -44,8 +45,7 @@ Expanded example:
 
 ## `takeOne()`
 
-`takeOne()` returns the first item from a array-like set, `null` if the set was empty, or just the item itself in any other case.
-
+`takeOne()` returns the first item from a array-like set, `null` if the set was empty, or just the item itself in any other case. It is available as both a Twig function and a filter.
 
 That means ugly code like this:
 
@@ -94,7 +94,7 @@ Expanded example:
 
 ## `fill()`
 
-`fill()` is useful when you want to be sure to end up with a set number of list items in total, drawing from a series of sources in preferential order:
+`fill()` is useful when you want to be sure to end up with a set number of list items in total, drawing from a series of sources in preferential order. It is available as a Twig function.
 
 ```twig
 {% set featuredItems = craft.entries.section('news').isFeatured(true) %}
