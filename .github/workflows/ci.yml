@@ -16,10 +16,10 @@ jobs:
         php_version: latest
         args: --profile --ignore-platform-reqs
     - name: Run phpstan
-      uses: php-actions/composer@v6
+      uses: php-actions/phpstan@v3
       with:
-        command: run-script phpstan
         php_version: latest
+        memory_limit: 1G
     - name: Run Check ECS
       uses: php-actions/composer@v6
       with:

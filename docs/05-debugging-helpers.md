@@ -1,6 +1,6 @@
 # Debugging helpers
 
-Out of the box, Craft gives us a `{% dd %}` tag in addition to Twig's native `dump` filter. Both are fine, but neither are great, particularly when you want to quick modify existing code to sanity check something. 
+Out of the box, Craft gives us a `{% dd %}` tag in addition to Twig's native `dump` filter. Both are fine, but neither are great, particularly when you want to quickly modify existing code to sanity check something.
 
 ## `dd()` / `d()` all the things
 

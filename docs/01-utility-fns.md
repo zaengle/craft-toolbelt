@@ -1,8 +1,4 @@
-# Utility functions
-
-## `parseUrl(string $url)`
-
-Wraps PHP's native [`parse_url()`](https://www.php.net/manual/en/function.parse-url.php)
+# Utility Template Functions
 
 ## `classNames` / `cx()` *
 
