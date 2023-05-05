@@ -4,18 +4,18 @@ namespace zaengle\Toolbelt\TwigExtensions;
 
 use craft\helpers\StringHelper as CraftStringHelper;
 use Newride\Classnames\Classnames as PhpClassnames;
-use Symfony\Component\VarDumper\VarDumper;
 use Stringy\Stringy;
+use Symfony\Component\VarDumper\VarDumper;
 
 use Twig\ExpressionParser;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
+use zaengle\Toolbelt\Helpers\DataHelper;
 use zaengle\Toolbelt\Helpers\ElementHelper as ToolbeltElementHelper;
 use zaengle\Toolbelt\Helpers\StringHelper as ToolbeltStringHelper;
 use zaengle\Toolbelt\Helpers\SvgHelper;
-use zaengle\Toolbelt\Helpers\DataHelper;
 
 use zaengle\Toolbelt\Node\Expression\EmptyCoalesceExpression;
 
