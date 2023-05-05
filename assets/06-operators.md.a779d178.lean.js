@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a,O as o}from"./chunks/framework.97fbe135.js";const f=JSON.parse('{"title":"Operators","description":"","frontmatter":{},"headers":[],"relativePath":"06-operators.md"}'),r={name:"06-operators.md"},s=o("",4),c=[s];function n(p,i,_,l,d,h){return a(),t("div",null,c)}const u=e(r,[["render",n]]);export{f as __pageData,u as default};
