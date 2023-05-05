@@ -47,7 +47,7 @@ class ToolbeltTwigExtension extends AbstractExtension
 
             // Wrapped Craft StringHelper fns
             new TwigFunction('UUID', [CraftStringHelper::class, 'UUID']),
-            new TwigFilter('humanize', [CraftStringHelper::class, 'humanize']),
+            new TwigFunction('humanize', [CraftStringHelper::class, 'humanize']),
             new TwigFunction('slugify', [CraftStringHelper::class, 'slugify']),
             new TwigFunction('basename', [CraftStringHelper::class, 'basename']),
             new TwigFunction('titleize', [CraftStringHelper::class, 'titleize']),
@@ -99,8 +99,8 @@ class ToolbeltTwigExtension extends AbstractExtension
             new TwigFilter('takeOne', [ToolbeltElementHelper::class, 'takeOne']),
 
             // Extra String helpers
-            new TwigFunction('stringify', [Stringy::class, 'create']),
-            new TwigFunction('s', [Stringy::class, 'create']),
+            new TwigFilter('stringify', [Stringy::class, 'create']),
+            new TwigFilter('s', [Stringy::class, 'create']),
 
             // Data helpers
             new TwigFilter('json_decode', [DataHelper::class, 'json_decode']),
