@@ -1,7 +1,5 @@
 # Changelog
 
-All notable changes to `:craft-toolbelt` will be documented in this file.
-
-## 1.0.0 - 202X-XX-XX
+## 1.0.0 - 2022-09-07
 
 - initial release
