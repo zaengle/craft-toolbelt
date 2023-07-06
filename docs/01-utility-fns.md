@@ -36,3 +36,56 @@ Wraps the [`newridetech/php-classnames`](https://github.com/newridetech/php-clas
 ```
 
 \* This functionality is based on the [Classnames plugin by Viget](https://github.com/vigetlabs/craft-classnames) 
+
+## `parseVideoUrl()`
+
+Parses a YouTube or Vimeo URL to extract its video ID, provider name and an array of thumbnail image URLs.
+
+```twig
+{# YouTube #}
+{{ dump(extractVideoIdFromUrl('https://www.youtube.com/watch?v=dQw4w9WgXcQ')) }}
+{# returns
+    {
+        "provider": "youtube",
+        "videoId": "dQw4w9WgXcQ",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "thumbnail": {
+            "max": "http://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+            "lg": "http://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+            "md": "http://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg",
+            "sm": "http://img.youtube.com/vi/dQw4w9WgXcQ/sddefault.jpg"
+        }
+    }
+#}
+{# Vimeo #}
+{{ dump(extractVideoIdFromUrl('https://vimeo.com/783453584')) }}
+{# returns
+    {
+        "provider": "vimeo",
+        "videoId": "783453584",
+        "url": "https://vimeo.com/783453584",
+        "thumbnail": {
+            "max": "https://vumbnail.com/783453584.jpg",
+            "lg": "https://vumbnail.com/783453584_large.jpg",
+            "md": "https://vumbnail.com/783453584_medium.jpg",
+            "sm": "https://vumbnail.com/783453584_small.jpg"
+        }
+    }
+#}
+```
+If the URL is not a valid YouTube or Vimeo URL, `null` is returned, unless `devMode` is enabled, in which case an
+exception is thrown.
+
+## `viteAsset()`
+
+Returns the path to a Vite asset within the `src/assets/` directory, allowing for the value of `import.meta.env.DEV` + asset hashing in production
+
+```twig
+
+```twig
+<img src="{{ viteAsset('img/logo.svg') }}" >
+{# Outputs this when using Vite devserver #}
+<img src="https://host.name:<VITE_PORT>/src/assets/img/logo.svg") }}" >
+{# But something this in prod #}
+<img src="/some/path/logo-<ASSET_HASH>.svg") }}" >
+```

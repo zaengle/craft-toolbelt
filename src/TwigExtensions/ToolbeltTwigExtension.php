@@ -17,6 +17,7 @@ use zaengle\Toolbelt\Helpers\ElementHelper as ToolbeltElementHelper;
 use zaengle\Toolbelt\Helpers\StringHelper as ToolbeltStringHelper;
 use zaengle\Toolbelt\Helpers\SvgHelper;
 
+use zaengle\Toolbelt\Helpers\VideoHelper;
 use zaengle\Toolbelt\Node\Expression\EmptyCoalesceExpression;
 
 class ToolbeltTwigExtension extends AbstractExtension
@@ -43,7 +44,8 @@ class ToolbeltTwigExtension extends AbstractExtension
             new TwigFunction('dirname', fn(string $path, int $levels = 1): string => dirname($path, $levels)),
             new TwigFunction('md5', [ToolbeltStringHelper::class, 'md5']),
             new TwigFunction('parse_url', fn(string $url) => parse_url($url), ['is_safe' => ['html']]),
-            new TwigFunction('pathinfo', fn(string $path, int $flags = PATHINFO_ALL): array|string => pathinfo($path, $flags)),
+            new TwigFunction('pathinfo', fn(string $path, int $flags = PATHINFO_ALL): array|string =>
+                pathinfo($path, $flags)),
 
             // Wrapped Craft StringHelper fns
             new TwigFunction('UUID', [CraftStringHelper::class, 'UUID']),
@@ -74,6 +76,12 @@ class ToolbeltTwigExtension extends AbstractExtension
 
             // Data helpers
             new TwigFunction('json_decode', [DataHelper::class, 'json_decode']),
+
+            // Vite asset helpers
+            new TwigFunction('viteAsset', [$this, 'viteAsset']),
+
+            // Video helpers
+            new TwigFunction('extractVideoIdFromUrl', [VideoHelper::class, 'extractVideoIdFromUrl']),
         ];
     }
 
@@ -104,6 +112,12 @@ class ToolbeltTwigExtension extends AbstractExtension
 
             // Data helpers
             new TwigFilter('json_decode', [DataHelper::class, 'json_decode']),
+
+            // Vite asset helpers
+            new TwigFilter('viteAsset', [$this, 'viteAsset']),
+
+            // Video helpers
+            new TwigFilter('extractVideoIdFromUrl', [VideoHelper::class, 'extractVideoIdFromUrl']),
         ];
     }
 
@@ -145,5 +159,18 @@ class ToolbeltTwigExtension extends AbstractExtension
     public function classNames(...$classnames): string
     {
         return PhpClassnames::make(...$classnames);
+    }
+
+    /**
+     * @param string $path
+     * @return string
+     * @throws \Exception
+     */
+    public function viteAsset(string $path): string
+    {
+        if (class_exists('nystudio107\vite\Vite')) {
+            return \nystudio107\vite\Vite::getInstance()->vite->asset("src/assets/{$path}");
+        }
+        throw new \Exception('Vite plugin not installed');
     }
 }
