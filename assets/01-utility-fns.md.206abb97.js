@@ -32,10 +32,10 @@ import{_ as s,c as a,o as n,O as l}from"./chunks/framework.d7e37bdc.js";const d=
 <span class="line"><span style="color:#676E95;font-style:italic;">        &quot;videoId&quot;: &quot;dQw4w9WgXcQ&quot;,</span></span>
 <span class="line"><span style="color:#676E95;font-style:italic;">        &quot;url&quot;: &quot;https://www.youtube.com/watch?v=dQw4w9WgXcQ&quot;,</span></span>
 <span class="line"><span style="color:#676E95;font-style:italic;">        &quot;thumbnail&quot;: {</span></span>
-<span class="line"><span style="color:#676E95;font-style:italic;">            &quot;max&quot;: &quot;http://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg&quot;,</span></span>
-<span class="line"><span style="color:#676E95;font-style:italic;">            &quot;lg&quot;: &quot;http://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg&quot;,</span></span>
-<span class="line"><span style="color:#676E95;font-style:italic;">            &quot;md&quot;: &quot;http://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg&quot;,</span></span>
-<span class="line"><span style="color:#676E95;font-style:italic;">            &quot;sm&quot;: &quot;http://img.youtube.com/vi/dQw4w9WgXcQ/sddefault.jpg&quot;</span></span>
+<span class="line"><span style="color:#676E95;font-style:italic;">            &quot;max&quot;: &quot;https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg&quot;,</span></span>
+<span class="line"><span style="color:#676E95;font-style:italic;">            &quot;lg&quot;: &quot;https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg&quot;,</span></span>
+<span class="line"><span style="color:#676E95;font-style:italic;">            &quot;md&quot;: &quot;https://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg&quot;,</span></span>
+<span class="line"><span style="color:#676E95;font-style:italic;">            &quot;sm&quot;: &quot;https://img.youtube.com/vi/dQw4w9WgXcQ/sddefault.jpg&quot;</span></span>
 <span class="line"><span style="color:#676E95;font-style:italic;">        }</span></span>
 <span class="line"><span style="color:#676E95;font-style:italic;">    }</span></span>
 <span class="line"><span style="color:#676E95;font-style:italic;">#}</span></span>
