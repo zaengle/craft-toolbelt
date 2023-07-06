@@ -50,10 +50,10 @@ Parses a YouTube or Vimeo URL to extract its video ID, provider name and an arra
         "videoId": "dQw4w9WgXcQ",
         "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         "thumbnail": {
-            "max": "http://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-            "lg": "http://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-            "md": "http://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg",
-            "sm": "http://img.youtube.com/vi/dQw4w9WgXcQ/sddefault.jpg"
+            "max": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+            "lg": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+            "md": "https://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg",
+            "sm": "https://img.youtube.com/vi/dQw4w9WgXcQ/sddefault.jpg"
         }
     }
 #}
