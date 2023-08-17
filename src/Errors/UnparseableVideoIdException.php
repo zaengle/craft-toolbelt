@@ -1,6 +1,7 @@
 <?php
 
 namespace zaengle\Toolbelt\Errors;
+
 use yii\base\Exception;
 
 class UnparseableVideoIdException extends Exception

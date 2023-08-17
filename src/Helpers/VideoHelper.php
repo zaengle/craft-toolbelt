@@ -1,6 +1,7 @@
 <?php
 
 namespace zaengle\Toolbelt\Helpers;
+
 use craft\helpers\App;
 use zaengle\Toolbelt\Errors\UnknownVideoProviderException;
 use zaengle\Toolbelt\Errors\UnparseableVideoIdException;
@@ -15,7 +16,7 @@ class VideoHelper
      * @return array|null
      * @throws UnknownVideoProviderException|UnparseableVideoIdException
      */
-    public static function parseVideoUrl (string $url): ?array
+    public static function parseVideoUrl(string $url): ?array
     {
         if (empty($url)) {
             return null;
