@@ -24,6 +24,7 @@ export default {
           { text: 'Query / Collection Helpers', link: '/03-query-helpers' },
           { text: 'Eager Loading Helpers', link: '/04-eager-loading-helpers' },
           { text: 'Debugging Helpers', link: '/05-debugging-helpers' },
+          { text: 'Media Helpers', link: '/08-media' },
           { text: 'Operators', link: '/06-operators' },
           { text: 'Custom Helpers', link: '/07-custom' },
         ]

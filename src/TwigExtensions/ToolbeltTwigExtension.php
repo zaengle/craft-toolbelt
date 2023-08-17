@@ -81,7 +81,7 @@ class ToolbeltTwigExtension extends AbstractExtension
             new TwigFunction('viteAsset', [$this, 'viteAsset']),
 
             // Video helpers
-            new TwigFunction('extractVideoIdFromUrl', [VideoHelper::class, 'extractVideoIdFromUrl']),
+            new TwigFunction('parseVideoUrl', [VideoHelper::class, 'parseVideoUrl']),
         ];
     }
 
@@ -117,7 +117,7 @@ class ToolbeltTwigExtension extends AbstractExtension
             new TwigFilter('viteAsset', [$this, 'viteAsset']),
 
             // Video helpers
-            new TwigFilter('extractVideoIdFromUrl', [VideoHelper::class, 'extractVideoIdFromUrl']),
+            new TwigFilter('parseVideoUrl', [VideoHelper::class, 'parseVideoUrl']),
         ];
     }
 
