@@ -20,6 +20,6 @@ power and flexibility means it's very easy to end up with a lot of logic in your
 3. [Query/Collection helpers](./03-query-helpers)
 4. [Eager loading helpers](./04-eager-loading-helpers)
 5. [Debugging helpers](./05-debugging-helpers)
-6. [Media helpers](./06-media-helpers)
+6. [Media helpers](./08-media-helpers)
 7. [Operators](./06-operators)
 8. [Defining custom helpers](./07-custom)
