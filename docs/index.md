@@ -16,10 +16,15 @@ power and flexibility means it's very easy to end up with a lot of logic in your
 ## What you get...
 
 1. [Utility functions](./01-utility-fns)
-2. [SVG helpers](./02-svg-helpers)
-3. [Query/Collection helpers](./03-query-helpers)
-4. [Eager loading helpers](./04-eager-loading-helpers)
-5. [Debugging helpers](./05-debugging-helpers)
-6. [Media helpers](./08-media-helpers)
+2. [String helpers](./01.5-string-helpers)
+3. [SVG helpers](./02-svg-helpers)
+4. [Query/Collection helpers](./03-query-helpers)
+5. [Eager loading helpers](./04-eager-loading-helpers)
+6. [Debugging helpers](./05-debugging-helpers)
 7. [Operators](./06-operators)
-8. [Defining custom helpers](./07-custom)
+8. [Media helpers](./08-media-helpers)
+9. [The ability to define custom/one-off helpers](./07-custom)
+
+## How?
+
+[Install the plugin](./00-installation) and then explore the docs.
