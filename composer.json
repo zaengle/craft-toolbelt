@@ -26,13 +26,12 @@
         "newridetech/php-classnames": "^1.2"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-latest"
-        ,
         "craftcms/cms": "^4.1",
         "craftcms/ecs": "dev-main",
+        "pestphp/pest": "^2.19.1",
+        "pestphp/pest-plugin-watch": "^2.0",
         "phpstan/phpstan": "^1.7",
-        "nunomaduro/collision": "^5.10",
-        "pestphp/pest": "^1.2",
+        "roave/security-advisories": "dev-latest",
         "symplify/easy-coding-standard": "^10.2"
     },
     "autoload": {
@@ -48,7 +47,7 @@
     "scripts": {
         "phpstan": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
-        "lint": "vendor/bin/pest coverage",
+        "coverage": "XDEBUG_MODE=coverage vendor/bin/pest --coverage",
         "check-cs": "ecs check --ansi",
         "fix-cs": "ecs check --ansi --fix"
     },
