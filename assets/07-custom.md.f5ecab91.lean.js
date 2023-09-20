@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.19f61efe.js";const u=JSON.parse('{"title":"Custom Helpers","description":"","frontmatter":{},"headers":[],"relativePath":"07-custom.md","filePath":"07-custom.md"}'),p={name:"07-custom.md"},o=l("",32),e=[o];function t(c,r,y,E,i,d){return n(),a("div",null,e)}const g=s(p,[["render",t]]);export{u as __pageData,g as default};
