@@ -12,8 +12,8 @@ use yii\base\Event;
 
 use zaengle\Toolbelt\Models\Settings;
 use zaengle\Toolbelt\Services\ToolbeltService;
-use zaengle\Toolbelt\TwigExtensions\CustomTwigExtension;
-use zaengle\Toolbelt\TwigExtensions\ToolbeltTwigExtension;
+use zaengle\Toolbelt\Twig\Extensions\CustomTwigExtension;
+use zaengle\Toolbelt\Twig\Extensions\ToolbeltTwigExtension;
 
 /**
  * Class Toolbelt

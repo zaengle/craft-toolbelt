@@ -1,6 +1,6 @@
 <?php
 
-namespace zaengle\Toolbelt\TwigExtensions;
+namespace zaengle\Toolbelt\Twig\Extensions;
 
 use Illuminate\Support\Collection;
 use Twig\Extension\AbstractExtension;
