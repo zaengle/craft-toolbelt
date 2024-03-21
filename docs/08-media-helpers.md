@@ -2,10 +2,42 @@
 
 ## `parseVideoUrl(string $url): array`
 
-`parseVideoUrl()` takes the URL to YouTube or Vimeo url and returns an array with `provider` , `videoId` , `url` string keys, as well as a `thumbnail` array key.
+Parses a YouTube or Vimeo URL to extract its video ID, provider name and an array of thumbnail image URLs.
 
-`thumbnail` is an array with url keys for `max`, `lg`, `md` & `sm` sizes.
-
+```twig
+{# YouTube #}
+{{ dump(parseVideoUrl('https://www.youtube.com/watch?v=dQw4w9WgXcQ')) }}
+{# returns
+    {
+        "provider": "youtube",
+        "videoId": "dQw4w9WgXcQ",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "thumbnail": {
+            "max": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+            "lg": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+            "md": "https://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg",
+            "sm": "https://img.youtube.com/vi/dQw4w9WgXcQ/sddefault.jpg"
+        }
+    }
+#}
+{# Vimeo #}
+{{ dump(extractVideoIdFromUrl('https://vimeo.com/783453584')) }}
+{# returns
+    {
+        "provider": "vimeo",
+        "videoId": "783453584",
+        "url": "https://vimeo.com/783453584",
+        "thumbnail": {
+            "max": "https://vumbnail.com/783453584.jpg",
+            "lg": "https://vumbnail.com/783453584_large.jpg",
+            "md": "https://vumbnail.com/783453584_medium.jpg",
+            "sm": "https://vumbnail.com/783453584_small.jpg"
+        }
+    }
+#}
+```
+If the URL is not a valid YouTube or Vimeo URL, `null` is returned, unless `devMode` is enabled, in which case an
+exception is thrown.
 
 > ### ⚠&nbsp;**Heads-up**
 >
