@@ -50,7 +50,7 @@ class ToolbeltTwigExtension extends AbstractExtension
             new TwigFunction('slugify', [CraftStringHelper::class, 'slugify']),
             new TwigFunction('basename', [CraftStringHelper::class, 'basename']),
             new TwigFunction('titleize', [CraftStringHelper::class, 'titleize']),
-            new TwigFunction('titleizeForHumans', [CraftStringHelper::class, 'titleizeForHumans']),
+            new TwigFunction('titleizeForHumans', fn (?string $str) => CraftStringHelper::titleizeForHumans($str)),
 
             // Extra String helpers
             new TwigFunction('stringify', [Stringy::class, 'create']),
