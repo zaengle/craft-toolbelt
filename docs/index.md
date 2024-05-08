@@ -23,7 +23,8 @@ power and flexibility means it's very easy to end up with a lot of logic in your
 6. [Debugging helpers](./05-debugging-helpers)
 7. [Operators](./06-operators)
 8. [Media helpers](./08-media-helpers)
-9. [The ability to define custom/one-off helpers](./07-custom)
+9. [The Stash](./09-stash)
+10. [The ability to define custom/one-off helpers](./07-custom)
 
 ## How?
 

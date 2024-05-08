@@ -16,6 +16,7 @@ use zaengle\Toolbelt\Helpers\StringHelper as ToolbeltStringHelper;
 use zaengle\Toolbelt\Helpers\SvgHelper;
 use zaengle\Toolbelt\Helpers\VideoHelper;
 use zaengle\Toolbelt\Node\Expression\EmptyCoalesceExpression;
+use zaengle\Toolbelt\Toolbelt;
 
 class ToolbeltTwigExtension extends AbstractExtension
 {
@@ -50,7 +51,7 @@ class ToolbeltTwigExtension extends AbstractExtension
             new TwigFunction('slugify', [CraftStringHelper::class, 'slugify']),
             new TwigFunction('basename', [CraftStringHelper::class, 'basename']),
             new TwigFunction('titleize', [CraftStringHelper::class, 'titleize']),
-            new TwigFunction('titleizeForHumans', fn (?string $str) => CraftStringHelper::titleizeForHumans($str)),
+            new TwigFunction('titleizeForHumans', fn(?string $str) => CraftStringHelper::titleizeForHumans($str)),
 
             // Extra String helpers
             new TwigFunction('stringify', [Stringy::class, 'create']),
@@ -120,9 +121,12 @@ class ToolbeltTwigExtension extends AbstractExtension
 
     // Attribution: this is robbed from https://github.com/nystudio107/craft-emptycoalesce
     // thanks Andrew W
-    /** @noinspection MissedFieldInspection */
+    /**
+     * @noinspection MissedFieldInspection
+     */
     public function getOperators(): array
     {
+        // @phpstan-ignore-next-line
         return [
             // Unary operators
             [],
@@ -134,6 +138,13 @@ class ToolbeltTwigExtension extends AbstractExtension
                     'associativity' => ExpressionParser::OPERATOR_RIGHT,
                 ],
             ],
+        ];
+    }
+
+    public function getGlobals(): array
+    {
+        return [
+            'stash' => Toolbelt::getInstance()->stash,
         ];
     }
 
