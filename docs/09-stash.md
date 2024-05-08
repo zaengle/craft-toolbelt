@@ -143,4 +143,4 @@ Internally the Stash uses Laravel Collections by default, along with Laravel's r
 
 ## Tests
 
-Are written using [Pest](https://pestphp.com/) and are located in `tests/uUit/StashTest.php`.
+Are written using [Pest](https://pestphp.com/) and are located in `tests/Unit/StashTest.php`.
