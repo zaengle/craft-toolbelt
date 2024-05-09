@@ -22,6 +22,7 @@ class ClosureExpressionParser extends ExpressionParser
 {
     /**
      * @inerhitdoc
+     * @phpstan-ignore-next-line
      */
     public function parseExpression($precedence = 0, $allowArrow = true)
     {
@@ -29,7 +30,10 @@ class ClosureExpressionParser extends ExpressionParser
     }
 
     /**
-     * @inerhitdoc
+     * @param bool $namedArguments
+     * @param bool $definition
+     * @param bool $allowArrow
+     * @return \Twig\Node\Node
      */
     public function parseArguments($namedArguments = false, $definition = false, $allowArrow = true)
     {

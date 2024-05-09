@@ -11,7 +11,7 @@ use Twig\Parser;
 use yii\base\Event;
 use zaengle\Toolbelt\Helpers\ReflectionHelper;
 use zaengle\Toolbelt\Models\Settings;
-use zaengle\Toolbelt\Services\ToolbeltService;
+use zaengle\Toolbelt\Services\StashService;
 use zaengle\Toolbelt\Twig\Extensions\CustomTwigExtension;
 use zaengle\Toolbelt\Twig\Extensions\ToolbeltTwigExtension;
 use zaengle\Toolbelt\Twig\Parsers\ClosureExpressionParser;
@@ -23,7 +23,7 @@ use zaengle\Toolbelt\Twig\Parsers\ClosureExpressionParser;
  * @package   Toolbelt
  * @since     1.0.0
  *
- * @property  ToolbeltService $tools
+ * @property  StashService $stash
  */
 class Toolbelt extends Plugin
 {
@@ -44,7 +44,7 @@ class Toolbelt extends Plugin
         self::$plugin = $this;
 
         $this->setComponents([
-            'tools' => ToolbeltService::class,
+            'stash' => StashService::class,
         ]);
 
         Craft::$app->view->registerTwigExtension(new ToolbeltTwigExtension());

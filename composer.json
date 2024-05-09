@@ -22,7 +22,7 @@
         "docs": "https://craft-toolbelt.zaengle.com"
     },
     "require": {
-        "php": "^8.0 | ^8.1 | ^8.2",
+        "php": "^8.0 | ^8.1 | ^8.2 | ^8.3",
         "newridetech/php-classnames": "^1.2"
     },
     "require-dev": {
@@ -46,7 +46,7 @@
         }
     },
     "scripts": {
-        "phpstan": "vendor/bin/phpstan analyse",
+        "phpstan": "vendor/bin/phpstan analyse --memory-limit=1G --ansi",
         "test": "vendor/bin/pest",
         "lint": "vendor/bin/pest coverage",
         "check-cs": "ecs check --ansi",
