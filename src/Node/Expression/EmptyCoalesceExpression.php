@@ -6,7 +6,7 @@
  *
  * 🙏 @nystudio107
  *
- * Empty Coalesce plugin for Craft CMS 4.x
+ * Empty Coalesce plugin for Craft CMS 4.x+
  *
  * Empty Coalesce adds the ??? operator to Twig that will return the first thing
  * that is defined, not null, and not empty.
