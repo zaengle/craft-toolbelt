@@ -1,6 +1,5 @@
 {
     "name": "zaengle/craft-toolbelt",
-    "version": "5.0.0",
     "description": "Utility tools for CraftCMS projects",
     "type": "craft-plugin",
     "keywords": [
