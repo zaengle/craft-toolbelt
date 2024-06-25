@@ -4,7 +4,6 @@
 
 ## `take()`
 
-`take()` accepts any of the above types and intelligently returns a Collection based on what you provided.
 
 It also accepts an optional second `limit` parameter that will limit the quantity of items in the returned collection.
 
