@@ -1,6 +1,6 @@
-# Release Notes for Toolblt
+# Release Notes for Toolbelt
 
-## 5.0.4 - 2024-06-24
+## 5.0.5 - 2024-06-24
 
 - improved: new plugin icon #shiny
 - release to plugin store
