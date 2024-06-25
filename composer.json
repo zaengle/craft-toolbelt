@@ -22,15 +22,15 @@
         "docs": "https://craft-toolbelt.zaengle.com"
     },
     "require": {
+        "craftcms/cms": "^4.0.0||^5.0.0",
         "php": "^8.2 | ^8.3",
         "newridetech/php-classnames": "^1.2"
     },
     "require-dev": {
-        "craftcms/cms": "^5.0.0-beta.1",
         "craftcms/ecs": "dev-main",
-        "craftcms/rector": "dev-main",
         "nunomaduro/collision": "^8.1",
         "pestphp/pest": "^2.34",
+        "phpstan/phpstan": "^1.11",
         "roave/security-advisories": "dev-latest",
         "symplify/easy-coding-standard": "^10.3"
     },
