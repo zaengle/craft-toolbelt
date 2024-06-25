@@ -68,7 +68,7 @@
         "handle": "toolbelt",
         "hasCpSection": false,
         "hasCpSettings": false,
-        "name": "craft-toolbelt"
+        "name": "Toolbelt"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
