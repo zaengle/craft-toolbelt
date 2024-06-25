@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a1 as n}from"./chunks/framework.biRBrEtS.js";const c=JSON.parse('{"title":"Custom Helpers","description":"","frontmatter":{},"headers":[],"relativePath":"07-custom.md","filePath":"07-custom.md"}'),t={name:"07-custom.md"},e=n("",32),l=[e];function h(p,k,r,o,d,g){return a(),i("div",null,l)}const y=s(t,[["render",h]]);export{c as __pageData,y as default};
