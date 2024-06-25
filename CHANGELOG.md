@@ -1,4 +1,9 @@
-# Changelog
+# Release Notes for Toolblt
+
+## 5.0.4 - 2024-06-24
+
+- improved: new plugin icon #shiny
+- release to plugin store
 
 ## 5.0.0 - 2024-05-09
 
