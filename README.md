@@ -21,16 +21,16 @@ See the [docs](https://craft-toolbelt.zaengle.com/) for detailed usage informati
 
 ## What you get...
 
-1. [Utility functions](./docs/01-utility-fns)
-2. [String helpers](./docs/01.5-string-helpers)
-3. [SVG helpers](./docs/02-svg-helpers)
-4. [Query/Collection helpers](./docs/03-query-helpers)
-5. [Eager loading helpers](./docs/04-eager-loading-helpers)
-6. [Debugging helpers](./docs/05-debugging-helpers)
-7. [Operators](./docs/06-operators)
-8. [Media helpers](./docs/08-media-helpers)
-9. [The Stash](./09-./docstash)
-10. [The ability to define custom/one-off helpers](./docs/07-custom)
+1. [Utility functions](./docs/01-utility-fns.md)
+2. [String helpers](./docs/01.5-string-helpers.md)
+3. [SVG helpers](./docs/02-svg-helpers.md)
+4. [Query/Collection helpers](./docs/03-query-helpers.md)
+5. [Eager loading helpers](./docs/04-eager-loading-helpers.md)
+6. [Debugging helpers](./docs/05-debugging-helpers.md)
+7. [Operators](./docs/06-operators.md)
+8. [Media helpers](./docs/08-media-helpers.md)
+9. [The Stash](./09-./docstash.md)
+10. [The ability to define custom/one-off helpers](./docs/07-custom.md)
 
 ## Installation
 
