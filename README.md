@@ -29,7 +29,7 @@ See the [docs](https://craft-toolbelt.zaengle.com/) for detailed usage informati
 6. [Debugging helpers](./docs/05-debugging-helpers.md)
 7. [Operators](./docs/06-operators.md)
 8. [Media helpers](./docs/08-media-helpers.md)
-9. [The Stash](./09-./docstash.md)
+9. [The Stash](./09-docstash.md)
 10. [The ability to define custom/one-off helpers](./docs/07-custom.md)
 
 ## Installation
