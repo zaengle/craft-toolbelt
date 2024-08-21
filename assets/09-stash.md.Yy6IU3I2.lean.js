@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as i,a2 as e}from"./chunks/framework.C94oF1kp.js";const g=JSON.parse('{"title":"The Stash","description":"","frontmatter":{},"headers":[],"relativePath":"09-stash.md","filePath":"09-stash.md"}'),t={name:"09-stash.md"},n=e("",41),h=[n];function l(p,o,r,k,d,c){return i(),a("div",null,h)}const u=s(t,[["render",l]]);export{g as __pageData,u as default};
