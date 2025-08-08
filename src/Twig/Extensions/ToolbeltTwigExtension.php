@@ -8,6 +8,7 @@ use Stringy\Stringy;
 use Symfony\Component\VarDumper\VarDumper;
 use Twig\ExpressionParser;
 use Twig\Extension\AbstractExtension;
+use Twig\Node\Expression\AbstractExpression;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 use zaengle\Toolbelt\Helpers\DataHelper;
@@ -122,11 +123,17 @@ class ToolbeltTwigExtension extends AbstractExtension
     // Attribution: this is robbed from https://github.com/nystudio107/craft-emptycoalesce
     // thanks Andrew W
     /**
-     * @noinspection MissedFieldInspection
+     * Returns a list of operators to add to the existing list.
+     *
+     * @return array<array> First array of unary operators, second array of binary operators
+     *
+     * @psalm-return array{
+     *     array<string, array{precedence: int, class: class-string<AbstractExpression>}>,
+     *     array<string, array{precedence: int, class: class-string<AbstractExpression>, associativity: ExpressionParser::OPERATOR_*}>
+     * }
      */
     public function getOperators(): array
     {
-        // @phpstan-ignore-next-line
         return [
             // Unary operators
             [],

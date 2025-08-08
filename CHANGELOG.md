@@ -1,12 +1,16 @@
 # Release Notes for Toolbelt
 
+## 5.0.9 - 2025-08-08
+
+- PHPStan fix
+
 ## 5.0.8 - 2025-08-08
 
-- Maintainence release
+- Maintenance release
 
 ## 5.0.7 - 2024-12-16
 
-- Maintainence release
+- Maintenance release
 
 ## 5.0.6 - 2024-06-25
 
