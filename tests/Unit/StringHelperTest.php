@@ -46,6 +46,31 @@ describe('VideoHelper', function() {
                 expect($this->result['thumbnail']['md'])->toBe('https://img.youtube.com/vi/9bZkp7q19f0/mqdefault.jpg');
                 expect($this->result['thumbnail']['sm'])->toBe('https://img.youtube.com/vi/9bZkp7q19f0/sddefault.jpg');
             });
+
+            it('strips extra params from a youtube.com watch URL', function() {
+                $result = VideoHelper::parseVideoUrl('https://www.youtube.com/watch?v=9bZkp7q19f0&feature=youtu.be');
+                expect($result['videoId'])->toBe('9bZkp7q19f0');
+            });
+
+            it('strips the si tracking param from a youtu.be share URL', function() {
+                $result = VideoHelper::parseVideoUrl('https://youtu.be/9bZkp7q19f0?si=aBcDeFgHiJkLmNoP');
+                expect($result['videoId'])->toBe('9bZkp7q19f0');
+            });
+
+            it('extracts the video ID from a bare youtu.be URL', function() {
+                $result = VideoHelper::parseVideoUrl('https://youtu.be/9bZkp7q19f0');
+                expect($result['videoId'])->toBe('9bZkp7q19f0');
+            });
+
+            it('extracts the video ID from an embed URL', function() {
+                $result = VideoHelper::parseVideoUrl('https://www.youtube.com/embed/9bZkp7q19f0');
+                expect($result['videoId'])->toBe('9bZkp7q19f0');
+            });
+
+            it('extracts the video ID from a shorts URL', function() {
+                $result = VideoHelper::parseVideoUrl('https://www.youtube.com/shorts/9bZkp7q19f0');
+                expect($result['videoId'])->toBe('9bZkp7q19f0');
+            });
         });
 
         describe('Vimeo Support', function() {
