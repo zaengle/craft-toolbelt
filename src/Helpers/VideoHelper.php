@@ -23,8 +23,8 @@ class VideoHelper
         }
 
         try {
-            if (preg_match(self::YOUTUBE_URL_PATTERN, $url, $matches, PREG_OFFSET_CAPTURE) > 0) {
-                $videoId = $matches[3][0] ?: throw new UnparseableVideoIdException();
+            if (preg_match(self::YOUTUBE_URL_PATTERN, $url) > 0) {
+                $videoId = self::parseYouTubeId($url) ?: throw new UnparseableVideoIdException();
                 $result = [
                     'provider' => 'youtube',
                     'videoId' => $videoId,
@@ -52,10 +52,6 @@ class VideoHelper
             } else {
                 throw new UnknownVideoProviderException();
             }
-
-            if (strpos($result['videoId'], '&')) {
-                $result['videoId'] = substr($result['videoId'], 0, strpos($result['videoId'], '&'));
-            }
         } catch (UnknownVideoProviderException|UnparseableVideoIdException $e) {
             if (App::devMode()) {
                 throw $e;
@@ -64,6 +60,22 @@ class VideoHelper
         }
 
         return $result;
+    }
+
+    /**
+     * Extract the video ID from a YouTube URL, ignoring any query params.
+     *
+     * Handles the `youtube.com/watch?v=ID` form (ID lives in the `v` query
+     * param) as well as the path-based forms `youtu.be/ID`, `embed/ID` and
+     * `shorts/ID`, where the ID is the last path segment. Tracking params such
+     * as the `?si=` on youtu.be share links are ignored.
+     */
+    private static function parseYouTubeId(string $url): string
+    {
+        $parts = parse_url($url);
+        parse_str($parts['query'] ?? '', $params);
+
+        return $params['v'] ?? basename($parts['path'] ?? '');
     }
 
     private static function ytThumbUrl(string $id, string $size = 'maxresdefault'): string
