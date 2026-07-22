@@ -40,9 +40,13 @@ class ElementHelper
     }
     public static function takeOne(array|null|ElementQuery|Element|Model|Collection $subject): ?Element
     {
-        if (!is_iterable($subject)) {
+        if ($subject instanceof Element) {
             return $subject;
         }
+        if ($subject === null) {
+            return null;
+        }
+        // Normalise queries/arrays/collections via take(), then grab the first.
         $selection = static::take($subject, 1);
 
         return $selection[0] ?? null;

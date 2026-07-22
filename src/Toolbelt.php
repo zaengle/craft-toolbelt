@@ -3,7 +3,7 @@
 namespace zaengle\Toolbelt;
 
 use Craft;
-use craft\base\Plugin;
+use CraftCms\Cms\Plugin\Plugin;
 use craft\events\RegisterTemplateRootsEvent;
 use craft\web\View;
 use ReflectionException;
@@ -22,8 +22,6 @@ use zaengle\Toolbelt\Twig\Parsers\ClosureExpressionParser;
  * @author    Zaengle Corp
  * @package   Toolbelt
  * @since     1.0.0
- *
- * @property  StashService $stash
  */
 class Toolbelt extends Plugin
 {
@@ -32,24 +30,24 @@ class Toolbelt extends Plugin
 
     public static Toolbelt $plugin;
     protected bool $closureAdded = false;
+
+    public StashService $stash;
+
     // Public Methods
     // =========================================================================
 
     /**
-     * @inheritdoc
+     * Runs during the Laravel "boot" phase (after the plugin has been loaded).
      */
-    public function init(): void
+    public function bootPlugin(): void
     {
-        parent::init();
-        self::$plugin = $this;
-
-        $this->setComponents([
-            'stash' => StashService::class,
-        ]);
+        // getInstance() is the settings-populated instance, not the booting provider instance.
+        self::$plugin = self::getInstance();
 
         Craft::$app->view->registerTwigExtension(new ToolbeltTwigExtension());
         Craft::$app->view->registerTwigExtension(new CustomTwigExtension());
 
+        self::$plugin->stash = new StashService();
 
         $this->registerEventHandlers();
     }

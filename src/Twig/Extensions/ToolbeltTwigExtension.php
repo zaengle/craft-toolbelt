@@ -184,7 +184,7 @@ class ToolbeltTwigExtension extends AbstractExtension
     public function viteAsset(string $path): string
     {
         if (class_exists('nystudio107\vite\Vite')) {
-            return \nystudio107\vite\Vite::getInstance()->vite->asset("src/assets/{$path}");
+            return \nystudio107\vite\Vite::getInstance()->getVite()->asset("src/assets/{$path}");
         }
         throw new \Exception('Vite plugin not installed');
     }
